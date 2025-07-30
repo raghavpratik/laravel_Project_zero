@@ -12,5 +12,7 @@ Route::get('/account/login',[LoginController::class,'index'])->name('account.log
 Route::get('/account/register', [LoginController::class, 'register' ]) ->name('account.register');
 Route::post('/account/processRegister', [LoginController::class, 'processRegister'])->name('account.processRegister');
 Route::post('/authenticate',[LoginController::class,'authenticate'])->name('account.authenticate');
-Route::get('/account/dashboard',[DashboardController::class,'index'])->name('account.dashboard');
-Route::get('/account/dashboard', [DashboardController:: class, 'index' ])->name('account.index');
+// Route::get('/account/dashboard',[LoginController::class,'dashboard'])->name('account.dashboard');
+Route::get('/account/dashboard', action: [DashboardController:: class, 'index' ])->name('account.dashboard');
+// The route just points to the controller. It doesn't know about the layout.
+Route::get('/account/dashboard', action: [DashboardController:: class, 'index' ])->name('');
