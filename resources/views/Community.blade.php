@@ -742,8 +742,14 @@
 </body>
 
 {{-- <body>
-              @extends('layouts.nav')
+@extends('layouts.nav')
 
 </body> --}}
+
+<body>
+    {{-- This is where you include the nav.blade.php layout --}}
+    {{-- @include('layouts.nav')Assuming nav.blade.php is in a 'layouts' directory --}}
+    {{-- @yield('content') --}}
+</body>
 
 </html>

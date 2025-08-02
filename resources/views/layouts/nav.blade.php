@@ -10,7 +10,7 @@
                             <i class="fas fa-paw text-white text-lg"></i>
                         </div>
     <h1 class="text-3xl font-bold text-white text-shadow navbar-brand-text">
-        <a href="/account/dashboard" class="text-white no-underline">
+        <a href="/" class="text-white no-underline">
             LittleFur
         </a>
     </h1>
@@ -28,7 +28,7 @@
                     @auth
                         <a href="/account/dashboard" class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-xl text-base font-semibold transition-all hover:scale-105 neon-glow interactive-element">My Account</a>
                     @else
-                        <a href="/account/welcome" class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-xl text-base font-semibold transition-all hover:scale-105 neon-glow interactive-element">Sign-up</a>
+                        <a href="/login" class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-xl text-base font-semibold transition-all hover:scale-105 neon-glow interactive-element">Sign-up</a>
                     @endauth
 
                 </div>
