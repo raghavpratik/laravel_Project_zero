@@ -30,12 +30,12 @@ class LoginController extends Controller
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
                 return redirect('/');
             } else {
-                return redirect()->route('account.login')->with('error','Either email or password is incorrect
-                ');
+                return redirect()->route('login')->with('error', 'Either email or password is incorrect');
+
             }
 
         } else {
-            return redirect()->route('account.login')
+            return redirect()->route('login')
                 ->withInput()
                 ->withErrors($validator);
 
@@ -64,13 +64,17 @@ class LoginController extends Controller
         $user->name = $request['name'];
         $user->email = $request['email'];
         $user->password = Hash::make($request['password']);
-        $user->role = 'customer'; // Assuming a default role
+        $user->role = 'general_user'; // Assuming a default role
         $user->save();
 
-        // Redirect to the login page with a success message.
-        return redirect()->route('account.login')->with('success', 'Registration successful! Please log in.');
+        // Redirect to the login page or the welcome page with a success message.
+        // Log the new user in automatically.
+Auth::login($user);
+
+// Redirect to the homepage or dashboard.
+return redirect('/')->with('success', 'Registration successful! You are now logged in.');
     } else {
-            return redirect()->route('account.regiter')
+            return redirect()->route('register')
                 ->withErrors($validator)
                 ->withInput();
         }

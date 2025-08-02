@@ -13,7 +13,7 @@ Route::get('/', action: [WelcomeController:: class, 'index' ])->name('account.we
 
 Route::get('/login',[LoginController::class,'index'])->name('login');
 Route::post('/authenticate',[LoginController::class,'authenticate'])->name('account.authenticate');
-Route::get('/account/register', [LoginController::class, 'register' ]) ->name('account.register');
+Route::get('/register', [LoginController::class, 'register' ]) ->name('register');
 Route::post('/account/processRegister', [LoginController::class, 'processRegister'])->name('account.processRegister');
 // Route::get('/account/welcome',[LoginController::class,'welcome'])->name('account.welcome');
 // Route::get('/account/welcome', action: [WelcomeController:: class, 'index' ])->name('account.welcome  ');
@@ -49,9 +49,9 @@ Route::get('/welcome', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/Signup', function () {
-    return view('Signup');
-})->name('Signup');
+// Route::get('/Signup', function () {
+//     return view('Signup');
+// })->name('Signup');
 
 Route::get('/GenAccount', function () {
     return view('GenAccount');
